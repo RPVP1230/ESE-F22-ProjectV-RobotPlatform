@@ -1,0 +1,333 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: r porter, HP Inc., LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.36.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.16
+Assembler:       Armasm.exe V6.16
+Linker/Locator:  ArmLink.exe V6.16
+Library Manager: ArmAr.exe V6.16
+Hex Converter:   FromElf.exe V6.16
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+C:\Users\nybor\Desktop\Conestoga\9-Fall 2022\EECE73205 - Project V\code\code\Group6LED.uvprojx
+Project File Date:  09/28/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+assembling startup_stm32f303xe.s...
+compiling LED1.c...
+LEDMain1.c(16): warning: In file included from...
+./Drive.h(12): warning: 'COUNT_PER' macro redefined [-Wmacro-redefined]
+#define COUNT_PER 1000
+        ^
+./servo.h(7): note: previous definition is here
+#define COUNT_PER 0.02
+        ^
+LEDMain1.c(191): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                        result = RCServo_SetAngle(angle);
+                                 ~~~~~~~~~~~~~~~~ ^~~~~
+LEDMain1.c(197): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                        result = RCServo_SetAngle(angle);
+                                 ~~~~~~~~~~~~~~~~ ^~~~~
+LEDMain1.c(202): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                        result = RCServo_SetAngle(angle);
+                                 ~~~~~~~~~~~~~~~~ ^~~~~
+LEDMain1.c(249): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                Drive(speed1);
+                ~~~~~ ^~~~~~
+LEDMain1.c(21): warning: unused variable 'd' [-Wunused-variable]
+        char c, d;
+                ^
+6 warnings generated.
+compiling LEDMain1.c...
+compiling system_stm32f3xx.c...
+UART.c(107): warning: implicit conversion loses integer precision: 'volatile uint16_t' (aka 'volatile unsigned short') to 'char' [-Wimplicit-int-conversion]
+        return(USART2->RDR);
+        ~~~~~~ ~~~~~~~~^~~
+UART.c(114): warning: implicit conversion loses integer precision: 'volatile uint16_t' (aka 'volatile unsigned short') to 'char' [-Wimplicit-int-conversion]
+                return(USART2->RDR);                                                    
+                ~~~~~~ ~~~~~~~~^~~
+UART.c(145): warning: format string is not a string literal [-Wformat-nonliteral]
+        vsnprintf( buffer, MAX_UART_BUFSIZ, fmt, myArgs );
+                                            ^~~
+3 warnings generated.
+compiling UART.c...
+compiling SysClock.c...
+stepper.c(50): warning: no previous prototype for function 'Wait_ms' [-Wmissing-prototypes]
+void Wait_ms(uint32_t msec) {
+     ^
+stepper.c(50): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Wait_ms(uint32_t msec) {
+^
+static 
+1 warning generated.
+compiling stepper.c...
+servo.c(88): warning: implicit conversion changes signedness: 'int' to 'uint16_t' (aka 'unsigned short') [-Wsign-conversion]
+        newPW = 1500 + (angle * 10);
+              ~ ~~~~~^~~~~~~~~~~~~~
+1 warning generated.
+compiling servo.c...
+keypad.c(98): warning: implicit declaration of function 'UARTprintf' is invalid in C99 [-Wimplicit-function-declaration]
+                                UARTprintf(".");
+                                ^
+keypad.c(122): warning: implicit declaration of function 'UARTprintf' is invalid in C99 [-Wimplicit-function-declaration]
+                                                                        UARTprintf("%c\n", key_legend[row_number][col_number]);
+                                                                        ^
+keypad.c(128): warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+3 warnings generated.
+compiling keypad.c...
+Systick.c(32): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+1 warning generated.
+compiling Systick.c...
+compiling Interupt.c...
+Drive.c(161): warning: implicit conversion changes signedness: 'int' to 'uint16_t' (aka 'unsigned short') [-Wsign-conversion]
+        newPW = 1500 + (angle * 10);
+              ~ ~~~~~^~~~~~~~~~~~~~
+1 warning generated.
+compiling Drive.c...
+LCD.c(52): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        CLEAR_BITS( GPIOA -> ODR, (LCS_RS_MSK | LCD_E_MSK | LCD_DATA_MSK ));
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(54): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(55): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_RS_IR;
+        ^~~~~~~~~
+./LCD.h(22): note: expanded from macro 'LCD_RS_IR'
+#define LCD_RS_IR CLEAR_BITS( GPIOA->ODR, LCS_RS_MSK)
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(61): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS ( 0x03 );
+        ^~~~~~~~~~~~~~~~
+./LCD.h(30): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value ) FORCE_BITS( GPIOA -> ODR, LCD_DATA_MSK, ( value << LCD_DATA_POS ))
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(24): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS( port, mask, value ) ( (port) = ( ( (port) & (~(mask)) ) | ( (value) & (mask) ) ) )
+                                                              ~  ^~~~~~~
+LCD.c(62): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(66): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS ( 0x03 );
+        ^~~~~~~~~~~~~~~~
+./LCD.h(30): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value ) FORCE_BITS( GPIOA -> ODR, LCD_DATA_MSK, ( value << LCD_DATA_POS ))
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(24): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS( port, mask, value ) ( (port) = ( ( (port) & (~(mask)) ) | ( (value) & (mask) ) ) )
+                                                              ~  ^~~~~~~
+LCD.c(67): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(71): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS ( 0x03 );
+        ^~~~~~~~~~~~~~~~
+./LCD.h(30): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value ) FORCE_BITS( GPIOA -> ODR, LCD_DATA_MSK, ( value << LCD_DATA_POS ))
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(24): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS( port, mask, value ) ( (port) = ( ( (port) & (~(mask)) ) | ( (value) & (mask) ) ) )
+                                                              ~  ^~~~~~~
+LCD.c(72): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(75): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS ( 0x02 );
+        ^~~~~~~~~~~~~~~~
+./LCD.h(30): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value ) FORCE_BITS( GPIOA -> ODR, LCD_DATA_MSK, ( value << LCD_DATA_POS ))
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(24): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS( port, mask, value ) ( (port) = ( ( (port) & (~(mask)) ) | ( (value) & (mask) ) ) )
+                                                              ~  ^~~~~~~
+LCD.c(76): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(100): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(101): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_RS_IR;
+        ^~~~~~~~~
+./LCD.h(22): note: expanded from macro 'LCD_RS_IR'
+#define LCD_RS_IR CLEAR_BITS( GPIOA->ODR, LCS_RS_MSK)
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(104): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS (HI_NYBBLE(cmd) );
+        ^~~~~~~~~~~~~~~~~~~~~~~~~
+./LCD.h(30): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value ) FORCE_BITS( GPIOA -> ODR, LCD_DATA_MSK, ( value << LCD_DATA_POS ))
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(24): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS( port, mask, value ) ( (port) = ( ( (port) & (~(mask)) ) | ( (value) & (mask) ) ) )
+                                                              ~  ^~~~~~~
+LCD.c(105): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(109): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS (LOW_NYBBLE(cmd) );
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./LCD.h(30): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value ) FORCE_BITS( GPIOA -> ODR, LCD_DATA_MSK, ( value << LCD_DATA_POS ))
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(24): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS( port, mask, value ) ( (port) = ( ( (port) & (~(mask)) ) | ( (value) & (mask) ) ) )
+                                                              ~  ^~~~~~~
+LCD.c(110): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(117): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(121): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS (HI_NYBBLE(data) );
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./LCD.h(30): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value ) FORCE_BITS( GPIOA -> ODR, LCD_DATA_MSK, ( value << LCD_DATA_POS ))
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(24): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS( port, mask, value ) ( (port) = ( ( (port) & (~(mask)) ) | ( (value) & (mask) ) ) )
+                                                              ~  ^~~~~~~
+LCD.c(122): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(125): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS (LOW_NYBBLE(data) );
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./LCD.h(30): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value ) FORCE_BITS( GPIOA -> ODR, LCD_DATA_MSK, ( value << LCD_DATA_POS ))
+                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(24): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS( port, mask, value ) ( (port) = ( ( (port) & (~(mask)) ) | ( (value) & (mask) ) ) )
+                                                              ~  ^~~~~~~
+LCD.c(126): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_E_LO;
+        ^~~~~~~~
+./LCD.h(19): note: expanded from macro 'LCD_E_LO'
+#define LCD_E_LO CLEAR_BITS( GPIOA->ODR, LCD_E_MSK)
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(20): note: expanded from macro 'CLEAR_BITS'
+#define CLEAR_BITS( port, mask) ( (port) &= (~(mask)) )
+                                         ~~  ^~~~~~~
+LCD.c(166): warning: format string is not a string literal [-Wformat-nonliteral]
+        vsnprintf( buffer, 32, fmt, myArgs );
+                               ^~~
+23 warnings generated.
+compiling LCD.c...
+linking...
+Program Size: Code=11612 RO-data=1356 RW-data=4 ZI-data=1632  
+".\Objects\Group6LED.axf" - 0 Error(s), 39 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F3xx_DFP.2.2.2.pack
+                Keil.STM32F3xx_DFP.2.2.2
+                STMicroelectronics STM32F3 Series Device Support and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Target_1
+  C:\Users\nybor\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\nybor\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+Build Time Elapsed:  00:00:04
+</pre>
+</body>
+</html>
