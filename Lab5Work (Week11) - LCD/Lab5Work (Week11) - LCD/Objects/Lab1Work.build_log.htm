@@ -1,0 +1,165 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: r p, conestoga, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Users\R\Desktop\Conestoga\9-Fall 2022\EECE73205 - Project V\Robot Code\SENG Sample Codes\Lab5Work (Week11) - LCD\Lab1Work.uvprojx
+Project File Date:  11/24/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+assembling startup_stm32f303xe.s...
+compiling LED.c...
+compiling main.c...
+system_stm32f3xx.c(86): warning: In file included from...
+C:/Users/R/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/R/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+2 warnings generated.
+compiling system_stm32f3xx.c...
+compiling SysClock.c...
+UART.c(173): warning: format string is not a string literal [-Wformat-nonliteral]
+                vsnprintf( myBuffer, MAX_BUF_SIZE, format, args );
+                                                   ^~~~~~
+1 warning generated.
+compiling UART.c...
+compiling Stepper.c...
+compiling utility.c...
+Servo.c(89): warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+                uint16_t pulseWidth = CENTREPERIOD + (angle * 10);
+                                                   ~  ~~~~~~^~~~
+1 warning generated.
+compiling Servo.c...
+Keypad.c(104): warning: implicit conversion changes signedness: 'int' to 'int8_t' (aka 'signed char') [-Wsign-conversion]
+                                return 4 * row_index + column_index;  
+                                ~~~~~~ ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+1 warning generated.
+compiling Keypad.c...
+lcd.c(51): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS( 0x03 );
+        ^~~~~~~~~~~~~~~
+./lcd.h(68): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value )        FORCE_BITS( LCD_PORT, LCD_BUS_BIT, (value) << LCD_BUS_BIT_POS )
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(17): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS(port, mask, value)   (port) = (((port) & (~(mask))) | ((value) & (mask)))
+                                                          ~  ^~~~~~~
+lcd.c(57): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS( 0x03 );
+        ^~~~~~~~~~~~~~~
+./lcd.h(68): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value )        FORCE_BITS( LCD_PORT, LCD_BUS_BIT, (value) << LCD_BUS_BIT_POS )
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(17): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS(port, mask, value)   (port) = (((port) & (~(mask))) | ((value) & (mask)))
+                                                          ~  ^~~~~~~
+lcd.c(63): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+LCD_BUS( 0x03 );
+^~~~~~~~~~~~~~~
+./lcd.h(68): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value )        FORCE_BITS( LCD_PORT, LCD_BUS_BIT, (value) << LCD_BUS_BIT_POS )
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(17): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS(port, mask, value)   (port) = (((port) & (~(mask))) | ((value) & (mask)))
+                                                          ~  ^~~~~~~
+lcd.c(68): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS( 0x02 );
+        ^~~~~~~~~~~~~~~
+./lcd.h(68): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value )        FORCE_BITS( LCD_PORT, LCD_BUS_BIT, (value) << LCD_BUS_BIT_POS )
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(17): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS(port, mask, value)   (port) = (((port) & (~(mask))) | ((value) & (mask)))
+                                                          ~  ^~~~~~~
+lcd.c(101): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS( HI_NYBBLE( cmd ) );
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./lcd.h(68): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value )        FORCE_BITS( LCD_PORT, LCD_BUS_BIT, (value) << LCD_BUS_BIT_POS )
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(17): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS(port, mask, value)   (port) = (((port) & (~(mask))) | ((value) & (mask)))
+                                                          ~  ^~~~~~~
+lcd.c(105): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS( LO_NYBBLE( cmd ) );
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./lcd.h(68): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value )        FORCE_BITS( LCD_PORT, LCD_BUS_BIT, (value) << LCD_BUS_BIT_POS )
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(17): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS(port, mask, value)   (port) = (((port) & (~(mask))) | ((value) & (mask)))
+                                                          ~  ^~~~~~~
+lcd.c(117): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS( HI_NYBBLE( data ) );
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./lcd.h(68): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value )        FORCE_BITS( LCD_PORT, LCD_BUS_BIT, (value) << LCD_BUS_BIT_POS )
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(17): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS(port, mask, value)   (port) = (((port) & (~(mask))) | ((value) & (mask)))
+                                                          ~  ^~~~~~~
+lcd.c(121): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        LCD_BUS( LO_NYBBLE( data ) );
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./lcd.h(68): note: expanded from macro 'LCD_BUS'
+#define LCD_BUS( value )        FORCE_BITS( LCD_PORT, LCD_BUS_BIT, (value) << LCD_BUS_BIT_POS )
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./utility.h(17): note: expanded from macro 'FORCE_BITS'
+#define FORCE_BITS(port, mask, value)   (port) = (((port) & (~(mask))) | ((value) & (mask)))
+                                                          ~  ^~~~~~~
+lcd.c(159): warning: format string is not a string literal [-Wformat-nonliteral]
+        (void)vsnprintf(buffer, MAX_LCD_BUFSIZ, str, args);
+                                                ^~~
+9 warnings generated.
+compiling lcd.c...
+linking...
+Program Size: Code=10684 RO-data=1352 RW-data=4 ZI-data=1640  
+".\Objects\Lab1Work.axf" - 0 Error(s), 14 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F3xx_DFP.2.2.2.pack
+                Keil.STM32F3xx_DFP.2.2.2
+                STMicroelectronics STM32F3 Series Device Support and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
+  C:/Users/R/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/R/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
