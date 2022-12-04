@@ -48,8 +48,8 @@ int main(void)
 	PrintMainMenu();
 	
 	//LCDputc('A');
-	
-	LCDprintf("\n>>>HelloWorld<<<");
+	LCDprintf( "\r start \n", inputCommand );
+	LCDprintf("\n>Robyn's Robot<");
 	
 	LCD_HomeCursor();
 	
@@ -58,8 +58,10 @@ int main(void)
 		inputCommand = UARTgetcNB();
 		count++;
 		
-		LCDprintf("\r0x%04X", count);
+		//LCDprintf("\r0x%04X", count);
+		//LCDprintf( "\r start \n", inputCommand );
 		
+		/*
 		//added this to allow keypad and UART inputs to coexist, with UART input prioritizing over Keypad
 		if( inputCommand == '\0' )
 		{
@@ -70,8 +72,8 @@ int main(void)
 				UARTprintf( "[Keypad Input]: %c\n", inputCommand );
 			}
 			
-		}			
-		
+		}		
+		*/
 		
 		//Program Loop
 		switch( inputCommand )
@@ -79,26 +81,31 @@ int main(void)
 			case '0':
 				stepType = STEPPER_STEP_STOP;
 				UARTprintf("[Stepper CMD]: Stop\n");
+				LCDprintf( "\r %c = Stop \n", inputCommand );
 				break;
 			
 			case '1':
 				stepType = STEPPER_STEP_CW_FULL;
 				UARTprintf("[Stepper CMD]: CW F\n");
+				LCDprintf( "\r %c = CW F \n", inputCommand );
 				break;
 			
 			case '2':
 				stepType = STEPPER_STEP_CCW_FULL;
 				UARTprintf("[Stepper CMD]: CCW F\n");
+				LCDprintf( "\r %c = CCW F \n", inputCommand );
 				break;
 			
 			case '3': 
 				stepType = STEPPER_STEP_CW_HALF;
 				UARTprintf("[Stepper CMD]: CW H\n");
+				LCDprintf( "\r %c = CW H \n", inputCommand );
 				break;
 			
 			case '4':
 				stepType = STEPPER_STEP_CCW_HALF;
 				UARTprintf("[Stepper CMD]: CCW H\n");
+				LCDprintf( "\r %c = CCW F \n", inputCommand );
 				break;
 			
 			case '8':
@@ -106,7 +113,8 @@ int main(void)
 				if(servoAngle > SERVO_ANGLE_MAX)
 					servoAngle = SERVO_ANGLE_MAX;
 				
-				UARTprintf("[Servo CMD]: Angle Set at: %d degrees, PWM Pulse Width: %d\n", servoAngle, RCServo_SetAngle(servoAngle));							
+				UARTprintf("[Servo CMD]: Angle Set at: %d degrees, PWM Pulse Width: %d\n", servoAngle, RCServo_SetAngle(servoAngle));	
+				LCDprintf( "\r %c = Servo + \n", inputCommand );				
 				
 				break;
 			
@@ -115,12 +123,14 @@ int main(void)
 				if(servoAngle < SERVO_ANGLE_MIN)
 					servoAngle = SERVO_ANGLE_MIN;
 				
-				UARTprintf("[Servo CMD]: Angle Set at: %d degrees, PWM Pulse Width: %d\n", servoAngle, RCServo_SetAngle(servoAngle));							
+				UARTprintf("[Servo CMD]: Angle Set at: %d degrees, PWM Pulse Width: %d\n", servoAngle, RCServo_SetAngle(servoAngle));
+				LCDprintf( "\r %c = Servo - \n", inputCommand );
 				
 				break;
 				
 			case 'D':
 				PrintMainMenu();
+				LCDprintf( "\r start             \n", inputCommand );
 				break;
 			
 			case 'y': // L FWD
@@ -162,9 +172,10 @@ int main(void)
 		Delay_ms(50);
 		Toggle_LED();
 		
-		UARTprintf("LEFT: %6d, RIGHT: %6d\r", leftEncoderPeriod, rightEncoderPeriod);
+		
 		
 	}
+	UARTprintf("LEFT: %6d, RIGHT: %6d\r", leftEncoderPeriod, rightEncoderPeriod);
 }
 
 
@@ -179,6 +190,6 @@ void PrintMainMenu(void)
 	UARTprintf( "4) Counter-Clockwise, Half-Step\n" );
 	UARTprintf( "8) Raise Servo by 5 Degrees\n" );
 	UARTprintf( "9) Lower Servo by 5 Degrees\n" );	
-	UARTprintf( "CMD> " );
+	UARTprintf( "CMD> \n" );
 }	
 
