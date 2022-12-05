@@ -29,18 +29,18 @@ Project File Date:  12/04/2022
 Rebuild target 'Target 1'
 assembling startup_stm32f303xe.s...
 compiling LED.c...
-main.c(178): warning: code will never be executed [-Wunreachable-code]
+compiling system_stm32f3xx.c...
+main.c(212): warning: code will never be executed [-Wunreachable-code]
         UARTprintf("LEFT: %6d, RIGHT: %6d\r", leftEncoderPeriod, rightEncoderPeriod);
         ^~~~~~~~~~
 1 warning generated.
 compiling main.c...
-compiling system_stm32f3xx.c...
+compiling SysClock.c...
 UART.c(173): warning: format string is not a string literal [-Wformat-nonliteral]
                 vsnprintf( myBuffer, MAX_BUF_SIZE, format, args );
                                                    ^~~~~~
 1 warning generated.
 compiling UART.c...
-compiling SysClock.c...
 Stepper.c(74): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         FORCE_BITS(GPIOC->ODR, 0x000F, stepPatternTable[currentStepIndex]);
         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,6 +60,7 @@ Keypad.c(104): warning: implicit conversion changes signedness: 'int' to 'int8_t
                                 ~~~~~~ ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
 1 warning generated.
 compiling Keypad.c...
+compiling DriveMotor.c...
 lcd.c(51): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         LCD_BUS( 0x03 );
         ^~~~~~~~~~~~~~~
@@ -137,7 +138,6 @@ lcd.c(159): warning: format string is not a string literal [-Wformat-nonliteral]
                                                 ^~~
 9 warnings generated.
 compiling lcd.c...
-compiling DriveMotor.c...
 Encoder.c(97): warning: no previous prototype for function 'TIM2_IRQHandler' [-Wmissing-prototypes]
 void TIM2_IRQHandler( void )
      ^
@@ -148,7 +148,7 @@ static
 1 warning generated.
 compiling Encoder.c...
 linking...
-Program Size: Code=11192 RO-data=1292 RW-data=4 ZI-data=1656  
+Program Size: Code=11560 RO-data=1864 RW-data=4 ZI-data=1656  
 ".\Objects\Lab1Work.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -172,7 +172,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

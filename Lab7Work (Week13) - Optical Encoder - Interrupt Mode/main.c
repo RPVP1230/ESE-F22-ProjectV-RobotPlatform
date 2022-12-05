@@ -81,7 +81,7 @@ int main(void)
 			case '0':
 				stepType = STEPPER_STEP_STOP;
 				UARTprintf("[Stepper CMD]: Stop\n");
-				LCDprintf( "\r %c = Stop \n", inputCommand );
+				LCDprintf( "\r %c = Stop            \n", inputCommand );
 				break;
 			
 			case '1':
@@ -136,32 +136,45 @@ int main(void)
 			case 'y': // L FWD
 				SetMotorSpeed(LEFT_MOTOR, 750);
 				SetMotorDir(LEFT_MOTOR, MOTOR_FWD);
+				UARTprintf("[Drive Motor CMD]: Left FW\n");
+				LCDprintf( "\r %c = Lt FW     \n", inputCommand );
 				break;
 				
 			case 'h': // L STOP
 				SetMotorSpeed(LEFT_MOTOR, 0);
 				SetMotorDir(LEFT_MOTOR, MOTOR_STOP);
+				UARTprintf("[Drive Motor CMD]: Left Stop H\n");
+				LCDprintf( "\r %c = Lt Stop \n", inputCommand );
 				break;
 			
 			case 'n': // L RWD
 				SetMotorSpeed(LEFT_MOTOR, 250);
 				SetMotorDir(LEFT_MOTOR, MOTOR_RWD);
+				UARTprintf("[Drive Motor CMD]: Left RW\n");
+				LCDprintf( "\r %c = Lt RW    \n", inputCommand );
 				break;
 			
 			case 'u': // R FWD
 				SetMotorSpeed(RIGHT_MOTOR, 750);
 				SetMotorDir(RIGHT_MOTOR, MOTOR_FWD);
+				UARTprintf("[Drive Motor CMD]: Right FW\n");
+				LCDprintf( "\r %c = Rt	FW    \n", inputCommand );
 				break;
 			
 			case 'j': // R STOP
 				SetMotorSpeed(RIGHT_MOTOR, 0);
 				SetMotorDir(RIGHT_MOTOR, MOTOR_STOP);
+				UARTprintf("[Drive Motor CMD]: Right Stop\n");
+				LCDprintf( "\r %c = Rt Stop \n", inputCommand );
 				break;
 			
 			case 'm': // R RWD
 				SetMotorSpeed(RIGHT_MOTOR, 250);
 				SetMotorDir(RIGHT_MOTOR, MOTOR_RWD);
+				UARTprintf("[Drive Motor CMD]: Right RW\n");
+				LCDprintf( "\r %c = Rt RW     \n", inputCommand );
 				break;
+			
 										
 			default:				
 				break;
@@ -188,8 +201,16 @@ void PrintMainMenu(void)
 	UARTprintf( "2) Counter-Clockwise, Full Step\n" );
 	UARTprintf( "3) Clockwise, Half Step\n" );
 	UARTprintf( "4) Counter-Clockwise, Half-Step\n" );
+	UARTprintf( "====================\n" );
 	UARTprintf( "8) Raise Servo by 5 Degrees\n" );
-	UARTprintf( "9) Lower Servo by 5 Degrees\n" );	
+	UARTprintf( "9) Lower Servo by 5 Degrees\n" );
+	UARTprintf( "====================\n" );	
+	UARTprintf( "y) Drive Motor Left Forward 750\n" );
+	UARTprintf( "h) Drive Motor Left Stop\n" );
+	UARTprintf( "n) Drive Motor Left Reverse 250\n" );
+	UARTprintf( "u) Drive Motor Right Forward 750\n" );
+	UARTprintf( "j) Drive Motor Right Stop\n" );
+	UARTprintf( "m) Drive Motor Right Reverse 250\n" );
 	UARTprintf( "CMD> \n" );
 }	
 
