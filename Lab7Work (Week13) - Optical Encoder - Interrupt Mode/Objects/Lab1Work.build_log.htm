@@ -27,9 +27,9 @@ Project File Date:  12/04/2022
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+compiling system_stm32f3xx.c...
 assembling startup_stm32f303xe.s...
 compiling LED.c...
-compiling system_stm32f3xx.c...
 main.c(212): warning: code will never be executed [-Wunreachable-code]
         UARTprintf("LEFT: %6d, RIGHT: %6d\r", leftEncoderPeriod, rightEncoderPeriod);
         ^~~~~~~~~~
@@ -55,12 +55,12 @@ Servo.c(89): warning: implicit conversion changes signedness: 'int' to 'unsigned
                                                    ~  ~~~~~~^~~~
 1 warning generated.
 compiling Servo.c...
+compiling DriveMotor.c...
 Keypad.c(104): warning: implicit conversion changes signedness: 'int' to 'int8_t' (aka 'signed char') [-Wsign-conversion]
                                 return 4 * row_index + column_index;  
                                 ~~~~~~ ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
 1 warning generated.
 compiling Keypad.c...
-compiling DriveMotor.c...
 lcd.c(51): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         LCD_BUS( 0x03 );
         ^~~~~~~~~~~~~~~
@@ -148,7 +148,7 @@ static
 1 warning generated.
 compiling Encoder.c...
 linking...
-Program Size: Code=11560 RO-data=1864 RW-data=4 ZI-data=1656  
+Program Size: Code=11596 RO-data=1932 RW-data=4 ZI-data=1656  
 ".\Objects\Lab1Work.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -172,7 +172,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

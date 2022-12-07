@@ -79,9 +79,13 @@ int main(void)
 		switch( inputCommand )
 		{
 			case '0':
-				stepType = STEPPER_STEP_STOP;
-				UARTprintf("[Stepper CMD]: Stop\n");
-				LCDprintf( "\r %c = Stop            \n", inputCommand );
+				stepType = STEPPER_STEP_STOP; //stepper
+				SetMotorSpeed(LEFT_MOTOR, 0); //left drive motor
+				SetMotorDir(LEFT_MOTOR, MOTOR_STOP);
+				SetMotorSpeed(RIGHT_MOTOR, 0); //right drive motor
+				SetMotorDir(RIGHT_MOTOR, MOTOR_STOP);
+				UARTprintf("[Stepper CMD]: All Stop\n");
+				LCDprintf( "\r %c = All Stop        \n", inputCommand );
 				break;
 			
 			case '1':
@@ -148,7 +152,7 @@ int main(void)
 				break;
 			
 			case 'n': // L RWD
-				SetMotorSpeed(LEFT_MOTOR, 250);
+				SetMotorSpeed(LEFT_MOTOR, 750);
 				SetMotorDir(LEFT_MOTOR, MOTOR_RWD);
 				UARTprintf("[Drive Motor CMD]: Left RW\n");
 				LCDprintf( "\r %c = Lt RW    \n", inputCommand );
@@ -169,12 +173,29 @@ int main(void)
 				break;
 			
 			case 'm': // R RWD
-				SetMotorSpeed(RIGHT_MOTOR, 250);
+				SetMotorSpeed(RIGHT_MOTOR, 750);
 				SetMotorDir(RIGHT_MOTOR, MOTOR_RWD);
 				UARTprintf("[Drive Motor CMD]: Right RW\n");
 				LCDprintf( "\r %c = Rt RW     \n", inputCommand );
 				break;
 			
+			case 'w': // Forward
+				SetMotorSpeed(RIGHT_MOTOR, 750);
+				SetMotorDir(RIGHT_MOTOR, MOTOR_FWD);
+				SetMotorSpeed(LEFT_MOTOR, 750);
+				SetMotorDir(LEFT_MOTOR, MOTOR_FWD);
+				UARTprintf("[Drive Motor CMD]: Forward\n");
+				LCDprintf( "\r %c = Forward   \n", inputCommand );
+				break;
+			
+			case 's': //Reverse
+				SetMotorSpeed(RIGHT_MOTOR, 750);
+				SetMotorDir(RIGHT_MOTOR, MOTOR_RWD);
+				SetMotorSpeed(LEFT_MOTOR, 750);
+				SetMotorDir(LEFT_MOTOR, MOTOR_RWD);
+				UARTprintf("[Drive Motor CMD]: Reverse  \n");
+				LCDprintf( "\r %c = Reverse    \n", inputCommand );
+				break;
 										
 			default:				
 				break;
@@ -194,9 +215,9 @@ int main(void)
 
 void PrintMainMenu(void)
 {
-	UARTprintf( "Scott's Stepper and Servo Demo\n" );
+	UARTprintf( "Robot Main Menu \n" );
 	UARTprintf( "====================\n" );
-	UARTprintf( "0) Stop\n" );
+	UARTprintf( "0) All Stop\n" );
 	UARTprintf( "1) Clockwise, Full Step\n" );
 	UARTprintf( "2) Counter-Clockwise, Full Step\n" );
 	UARTprintf( "3) Clockwise, Half Step\n" );
@@ -211,6 +232,9 @@ void PrintMainMenu(void)
 	UARTprintf( "u) Drive Motor Right Forward 750\n" );
 	UARTprintf( "j) Drive Motor Right Stop\n" );
 	UARTprintf( "m) Drive Motor Right Reverse 250\n" );
+	UARTprintf( "====================\n" );
+	UARTprintf( "w) Drive Motors Forward (Left & Right)\n" );
+	UARTprintf( "s) Drive Motors Reverse (Left & Right)\n" );
 	UARTprintf( "CMD> \n" );
 }	
 
